@@ -1,0 +1,244 @@
+:root {
+    --color-bg: #f5f7f9;
+    --color-text: #2e2e2e;
+    --color-heading: #2c3e50;
+
+    --color-primary: #1abc9c;
+    --color-primary-dark: #0c715c;
+    --color-primary-light: #6eefd4;
+
+    --color-secondary: #7f8c8d;
+    --color-accent: #3498db;
+    --color-accent-dark: #2980b9;
+
+    --color-table-bg: #ffffff;
+    --color-table-alt: #f2f6fb;
+    --color-table-header: #8e5ecd;
+    --color-table-header-text: #ffffff;
+
+    --color-input-border: #ccc;
+    --color-error: #e74c3c;
+
+    --shadow-light: 0 4px 8px rgba(0,0,0,0.05);
+    --shadow-medium: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h1, h2 {
+    color: var(--color-heading);
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--color-primary-dark);
+}
+
+
+/* Formulare*/
+form {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"], input[type="date"] {
+    width: 100%;
+    padding: 8px 12px;
+    margin: 6px 0 12px 0;
+    border: 1px solid var(--color-input-border);
+    border-radius: 6px;
+}
+
+/* Error */
+.error {
+    color: var(--color-error);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* Links */
+a {
+    color: var(--color-accent-dark);
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Home */
+
+.container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.card {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: white;
+    width: 220px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+
+/* Login-registration */
+
+.formular {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 430px;
+    margin: 40px auto;
+}
+
+.formular label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 350px;
+    text-align: left;
+}
+
+.formular input[type="text"],
+.formular input[type="password"]{
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.error {
+    font-size: 14px;
+    font-family: inherit;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 350px;
+    text-align: left;
+}
+
+/* home */
+.container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.card {
+    width: 220px;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card p {
+    font-size: 14px;
+}
+
+.card h2 {
+    margin: 10px 0 5px;
+    font-size: 20px;
+    color: inherit;
+}
+
+.card a:hover {
+    text-decoration: none;
+}
+
+/* table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: var(--color-table-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--color-table-header);
+    color: var(--color-table-header-text);
+}
+
+tr:nth-child(even) {
+    background-color: var(--color-table-alt);
+}
+
+

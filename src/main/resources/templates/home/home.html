@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Tracking Home</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Welcome, <span th:text="${user.firstName}">Username</span></h1>
+
+    <div class="grid">
+        <a href="/time_entries/today" class="card">
+            <h2>Log time</h2>
+        </a>
+        <a href="/reports" class="card">
+            <h2>View and manage reports</h2>
+        </a>
+    </div>
+
+    <form th:action="@{/auth/logout}" th:method="POST">
+        <input class="btn" type="submit" value="Logout"/>
+    </form>
+</div>
+</body>
+</html>
