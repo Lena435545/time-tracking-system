@@ -1,6 +1,6 @@
 # Time Tracking System - IHK Examination Project
 
-This is a full-featured web-based time tracking application, created as a demonstration project for the IHK (German Chamber of Commerce) final exam in application development. It showcases the practical application of modern Java enterprise technologies and key software development principles.
+This is a web-based time tracking application, developed as a practice project within IT application development training, aimed at deepening practical skills in development. It showcases the practical application of modern Java enterprise technologies and key software development principles.
 
 ## Project Overview
 
@@ -279,12 +279,12 @@ heroku open
 
 ## License
 
-This project is released under the MIT License and serves exclusively for demonstration as a demonstration for the IHK final exam preparation.
+This project is released under the MIT License and is intended solely as a demonstration to deepen development skills in web development
 
 ```
 MIT License
 
-Copyright (c) 2025 [Manicheva Lena] - IHK Examination Project
+Copyright (c) 2025 Manicheva Lena
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

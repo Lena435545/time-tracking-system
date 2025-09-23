@@ -39,5 +39,4 @@ public class Account {
     @Enumerated(EnumType.STRING)
     @Column(name="role")
     private Role role;
-
 }
