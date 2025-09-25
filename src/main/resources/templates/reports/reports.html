@@ -8,14 +8,14 @@
 <h1>Select a Report</h1>
 
 
-<form th:action="@{/reports/daily}" method="get">
+<form class="formular" th:action="@{/reports/daily}" method="get">
     <label for="date">Select date:</label>
     <input type="date" id="date" name="date" required>
     <button type="submit">Download Daily Report</button>
 </form>
 
 
-<form th:action="@{/reports/ihk}" method="get">
+<form class="formular"  th:action="@{/reports/ihk}" method="get">
     <label for="weekStart">Select week start (Monday):</label>
     <input type="date" id="weekStart" name="weekStart" required>
     <button type="submit">Download IHK Weekly Report</button>

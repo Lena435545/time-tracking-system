@@ -13,19 +13,22 @@
           th:object="${entry}"
           method="post">
 
-        <label>Date:</label>
-        <input type="date" th:field="*{date}" required/><br/>
+        <div class="formular">
+            <label for="date">Date:</label>
+            <input type="date" id="date" th:field="*{date}" required/>
 
-        <label>Start Time:</label>
-        <input type="time" th:field="*{startTime}" required/><br/>
+            <label for="start">Start Time:</label>
+            <input type="time" id="start" th:field="*{startTime}" required/>
 
-        <label>End Time:</label>
-        <input type="time" th:field="*{endTime}"/><br/>
+            <label for="end">End Time:</label>
+            <input type="time" id="end" th:field="*{endTime}"/>
 
-        <label>Activity:</label>
-        <input type="text" th:field="*{activity}" required/><br/>
+            <label for="activity">Activity:</label>
+            <input type="text" id="activity" th:field="*{activity}" required/>
 
-        <button type="submit">Save</button>
+            <button class="btn" type="submit">Save</button>
+        </div>
+
     </form>
 
     <a th:href="@{/time_entries/today}">Back to Today</a>
