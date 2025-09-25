@@ -1,7 +1,8 @@
-# Time Tracking System - IHK Examination Project
+# Time Tracking System
 
 This is a web-based time tracking application, developed as a practice project within IT application development training, aimed at deepening practical skills in development. It showcases the practical application of modern Java enterprise technologies and key software development principles.
 
+The project repository is available at [this link](https://github.com/Lena435545/time-tracking-system).
 ## Project Overview
 
 This project demonstrates the development of a complete enterprise web application using Spring Boot. It implements a time tracking system for employees with comprehensive user management, time logging functionality, and professional PDF report generation.
@@ -117,14 +118,14 @@ mvn clean install
 3. **Configure database**
 ```properties
 # application.properties
-spring.datasource.url=jdbc:h2:mem:testdb
-spring.datasource.driver-class-name=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/time_track
+spring.datasource.username=your_username
+spring.datasource.password=your_password
 
-spring.jpa.hibernate.ddl-auto=create-drop
-spring.jpa.show-sql=true
-spring.h2.console.enabled=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=validate
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
 ```
 
 4. **Start the application**
@@ -135,19 +136,6 @@ mvn spring-boot:run
 5. **Access via browser**
 ```
 http://localhost:8080
-```
-
-### Production Configuration
-
-For production environments, configure MySQL/PostgreSQL:
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/timetracking
-spring.datasource.username=${DB_USERNAME}
-spring.datasource.password=${DB_PASSWORD}
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-
-spring.jpa.hibernate.ddl-auto=validate
-spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
 ```
 
 ## Functional Description
