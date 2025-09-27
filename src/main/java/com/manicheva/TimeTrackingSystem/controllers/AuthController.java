@@ -1,7 +1,6 @@
 package com.manicheva.TimeTrackingSystem.controllers;
 
 import com.manicheva.TimeTrackingSystem.models.Account;
-import com.manicheva.TimeTrackingSystem.models.User;
 import com.manicheva.TimeTrackingSystem.services.RegistrationService;
 import com.manicheva.TimeTrackingSystem.utils.AccountValidator;
 import jakarta.validation.Valid;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/auth")
@@ -35,13 +35,23 @@ public class AuthController {
 
     @PostMapping("/registration")
     public String registerAccount(@ModelAttribute("account") @Valid Account account,
-                                      BindingResult bindingResult) {
+                                 BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         accountValidator.validate(account, bindingResult);
 
-        if (bindingResult.hasErrors())
+        if (bindingResult.hasErrors()) {
             return "/auth/registration";
+        }
 
-        registrationService.register(account);
+        try {
+            registrationService.register(account);
+            redirectAttributes.addFlashAttribute("successMessage", "Registration successful! Please log in.");
+        } catch (IllegalArgumentException e) {
+            bindingResult.rejectValue("username", "", e.getMessage());
+            return "/auth/registration";
+        } catch (Exception e) {
+            bindingResult.rejectValue("username", "", "Registration failed. Please try again.");
+            return "/auth/registration";
+        }
 
         return "redirect:/auth/login";
     }

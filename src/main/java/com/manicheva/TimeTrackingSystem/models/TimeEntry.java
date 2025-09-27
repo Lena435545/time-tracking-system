@@ -1,6 +1,8 @@
 package com.manicheva.TimeTrackingSystem.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,9 +30,11 @@ public class TimeEntry {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @NotNull(message = "User is required")
     private User user;
 
     @Column(name = "date", nullable = false)
+    @NotNull(message = "Date is required")
     private LocalDate date;
 
     @Column(name = "start_time")
@@ -40,6 +44,7 @@ public class TimeEntry {
     private LocalTime endTime;
 
     @Column(name = "activity")
+    @Size(max = 500, message = "Activity description cannot exceed 500 characters")
     private String activity;
 
     @CreationTimestamp
@@ -48,4 +53,18 @@ public class TimeEntry {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    // Business logic validation
+    public boolean isValidTimeRange() {
+        if (startTime == null || endTime == null) {
+            return true; // Allow incomplete entries
+        }
+        return startTime.isBefore(endTime);
+    }
+
+    public Duration getDuration() {
+        if (startTime == null || endTime == null) {
+            return Duration.ZERO;
+        }
+        return Duration.between(startTime, endTime);
+    }
 }

@@ -1,6 +1,9 @@
 package com.manicheva.TimeTrackingSystem.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,15 +33,22 @@ public class User {
     private Account account;
 
     @Column(nullable = false)
+    @NotBlank(message = "First name is required")
+    @Size(min = 2, max = 50, message = "First name must be between 2 and 50 characters")
     private String firstName;
 
     @Column(nullable = false)
+    @NotBlank(message = "Last name is required")
+    @Size(min = 2, max = 50, message = "Last name must be between 2 and 50 characters")
     private String lastName;
 
     @Column(unique = true, nullable = false)
+    @NotBlank(message = "Email is required")
+    @Email(message = "Please provide a valid email address")
     private String email;
 
     @Column
+    @Size(max = 100, message = "Department name cannot exceed 100 characters")
     private String department;
 
     @CreationTimestamp

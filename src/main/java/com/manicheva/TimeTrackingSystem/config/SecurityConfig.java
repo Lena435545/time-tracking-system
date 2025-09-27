@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -38,16 +37,15 @@ public class SecurityConfig {
                   .logout(logout -> logout
                           .logoutUrl("/auth/logout")
                           .logoutSuccessUrl("/auth/login")
+                          .invalidateHttpSession(true)
+                          .deleteCookies("JSESSIONID")
                           .permitAll()
                   )
                   .exceptionHandling(ex -> ex
-                          .accessDeniedPage("/auth/access_denied"));
-                //todo login settings turned off for testing
-                /*.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
-                .formLogin(AbstractHttpConfigurer::disable)
-                .httpBasic(AbstractHttpConfigurer::disable)
-                .logout(AbstractHttpConfigurer::disable);*/
+                          .accessDeniedPage("/auth/access_denied"))
+                  .sessionManagement(session -> session
+                          .maximumSessions(1)
+                          .maxSessionsPreventsLogin(false));
 
         return http.build();
     }

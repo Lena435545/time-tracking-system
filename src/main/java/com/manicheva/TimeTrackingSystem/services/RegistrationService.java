@@ -22,14 +22,25 @@ public class RegistrationService {
     }
 
     @Transactional
-    public void register(Account account){
+    public void register(Account account) {
+        // Check if user already exists
+        if (userRepository.findByEmail(account.getUsername()).isPresent()) {
+            throw new IllegalArgumentException("User with this email already exists");
+        }
 
-        User user = userRepository.findByEmail(account.getUsername())
-                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+        // Create new user
+        User user = new User();
+        user.setEmail(account.getUsername());
+        // Set default values - these should be collected during registration
+        user.setFirstName("User");
+        user.setLastName("Name");
+        user.setDepartment("General");
+        
+        User savedUser = userRepository.save(user);
 
         account.setPassword(passwordEncoder.encode(account.getPassword()));
         account.setRole(Role.USER);
-        account.setUser(user);
+        account.setUser(savedUser);
         accountRepository.save(account);
     }
 }
