@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Today's Time Entries</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Today's Entries</h2>
+
+    <form th:action="@{/time_entries/start}" th:method="POST">
+        <button class="btn" type="submit">Start Time</button>
+    </form>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Activity</th>
+            <th>End Entry</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="entry : ${entries}">
+            <td th:text="${entry.date}">Date</td>
+            <td th:text="${entry.startTime}">Start</td>
+            <td th:text="${entry.endTime}">End</td>
+            <td th:text="${entry.activity}">Activity</td>
+            <td>
+                <form th:action="@{/time_entries/end/{id}(id=${entry.timeEntryId})}" method="post"
+                      th:if="${entry.endTime == null}">
+                    <input type="text" name="activity" placeholder="Activity" required/>
+                    <button class="btn" type="submit">End Time</button>
+                </form>
+                <span th:if="${entry.endTime != null}">Finished</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <a th:href="@{/time_entries/by_range}">View and edit time entities for  period </a> |
+        <a th:href="@{/time_entries/by_date}">View and edit time entities for a day</a>
+    </div>
+
+    <form th:action="@{/auth/logout}" th:method="POST">
+        <input class="btn" type="submit" value="Logout"/>
+    </form>
+</div>
+</body>
+</html>
