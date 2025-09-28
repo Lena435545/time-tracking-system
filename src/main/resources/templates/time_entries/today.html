@@ -9,10 +9,6 @@
 <div class="container">
     <h2>Today's Entries</h2>
 
-    <!-- Success/Error Messages -->
-    <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
-    <div th:if="${errorMessage}" class="alert alert-error" th:text="${errorMessage}"></div>
-
     <form th:action="@{/time_entries/start}" th:method="POST">
         <button class="btn" type="submit">Start Time</button>
     </form>
@@ -36,7 +32,7 @@
             <td>
                 <form th:action="@{/time_entries/end/{id}(id=${entry.timeEntryId})}" method="post"
                       th:if="${entry.endTime == null}">
-                    <input type="text" name="activity" placeholder="Activity description" required maxlength="500"/>
+                    <input type="text" name="activity" placeholder="Activity" required/>
                     <button class="btn" type="submit">End Time</button>
                 </form>
                 <span th:if="${entry.endTime != null}">Finished</span>

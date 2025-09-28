@@ -1,4 +1,4 @@
-package com.manicheva.TimeTrackingSystem.controllers;
+package java.com.manicheva.TimeTrackingSystem.controllers;
 
 import com.manicheva.TimeTrackingSystem.models.TimeEntry;
 import com.manicheva.TimeTrackingSystem.models.User;

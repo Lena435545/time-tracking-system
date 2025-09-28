@@ -1,13 +1,14 @@
-package com.manicheva.TimeTrackingSystem.services;
+package java.com.manicheva.TimeTrackingSystem.services;
 
+import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
 import com.manicheva.TimeTrackingSystem.models.TimeEntry;
 import com.manicheva.TimeTrackingSystem.models.User;
+import com.manicheva.TimeTrackingSystem.services.TimeEntryService;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 @Service
 public class PdfService {
 
-    private final TimeEntryService timeEntryService;
+    private final com.manicheva.TimeTrackingSystem.services.TimeEntryService timeEntryService;
 
     public PdfService(TimeEntryService timeEntryService) {
         this.timeEntryService = timeEntryService;

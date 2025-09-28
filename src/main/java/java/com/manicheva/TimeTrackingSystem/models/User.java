@@ -1,5 +1,7 @@
-package com.manicheva.TimeTrackingSystem.models;
+package java.com.manicheva.TimeTrackingSystem.models;
 
+import com.manicheva.TimeTrackingSystem.models.Account;
+import com.manicheva.TimeTrackingSystem.models.TimeEntry;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

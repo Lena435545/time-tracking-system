@@ -1,16 +1,14 @@
-package com.manicheva.TimeTrackingSystem.models;
+package java.com.manicheva.TimeTrackingSystem.models;
 
 
+import com.manicheva.TimeTrackingSystem.models.Role;
+import com.manicheva.TimeTrackingSystem.models.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name="accounts")

@@ -1,14 +1,16 @@
-package com.manicheva.TimeTrackingSystem.controllers;
+package java.com.manicheva.TimeTrackingSystem.controllers;
 
 import com.manicheva.TimeTrackingSystem.models.Account;
-import com.manicheva.TimeTrackingSystem.models.User;
 import com.manicheva.TimeTrackingSystem.services.RegistrationService;
 import com.manicheva.TimeTrackingSystem.utils.AccountValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/auth")

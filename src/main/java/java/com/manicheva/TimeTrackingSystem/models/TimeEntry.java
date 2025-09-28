@@ -1,5 +1,6 @@
-package com.manicheva.TimeTrackingSystem.models;
+package java.com.manicheva.TimeTrackingSystem.models;
 
+import com.manicheva.TimeTrackingSystem.models.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +12,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.Duration;
 
 @Entity
 @Table(name="time_entries")
