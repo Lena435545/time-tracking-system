@@ -2,7 +2,7 @@
 
 This is a web-based time tracking application, developed as a practice project within IT application development training, aimed at deepening practical skills in development. It showcases the practical application of modern Java enterprise technologies and key software development principles.
 
-The project repository is available at [this link](https://github.com/Lena435545/time-tracking-system).
+
 ## Project Overview
 
 This project demonstrates the development of a complete enterprise web application using Spring Boot. It implements a time tracking system for employees with comprehensive user management, time logging functionality, and professional PDF report generation.
